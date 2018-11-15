@@ -1,18 +1,23 @@
 #pragma once
 #include "TextureManager.h"
-#include <SDL.h>
-#include <SDL_image.h>
+#include "GameObject.h"
+#include "Player.h"
 
 class Game
 {
+	SDL_Texture* m_pTexture;
+	SDL_Rect m_sourceRectangle;
+	SDL_Rect m_destinationRectangle;
+	GameObject m_go;
+	Player m_player;
 	int m_currentFrame;
 
 public:
 	Game() {}
 	~Game() {}
 	bool init(const char* title, int xpos, int ypos, int width, int height, bool fullscreen);
-	void update();
 	void render();
+	void update();
 	void handleEvents();
 	void clean();
 	bool running() { return m_bRunning; }
