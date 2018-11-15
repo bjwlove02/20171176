@@ -2,14 +2,13 @@
 #include "TextureManager.h"
 #include "GameObject.h"
 #include "Player.h"
+#include "Enemy.h"
 
 class Game
 {
 	SDL_Texture* m_pTexture;
 	SDL_Rect m_sourceRectangle;
 	SDL_Rect m_destinationRectangle;
-	GameObject m_go;
-	Player m_player;
 	int m_currentFrame;
 
 public:
@@ -25,5 +24,12 @@ public:
 private:
 	SDL_Window * m_pWindow;
 	SDL_Renderer* m_pRenderer;
+
+	std::vector<GameObject*> m_gameObjects;
+
+	GameObject* m_go;
+	GameObject* m_player;
+	GameObject* m_enemy;
+
 	bool m_bRunning;
 };

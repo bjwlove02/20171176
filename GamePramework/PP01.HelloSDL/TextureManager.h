@@ -3,17 +3,13 @@
 #include <SDL_image.h>
 #include <map>
 #include <iostream>
+#include <vector>
+
 using namespace std;
 
 class TextureManager {
 	std::map<std::string, SDL_Texture*> m_textureMap;
-private:
-	static TextureManager* s_pInstance;
-
 public:
-	TextureManager(){}
-	~TextureManager(){}
-
 	bool load(std::string fileName, std::string id,
 		SDL_Renderer* pRenderer);
 
@@ -25,7 +21,6 @@ public:
 		int currentRow, int currentFrame,
 		SDL_Renderer* pRenderer,
 		SDL_RendererFlip flip = SDL_FLIP_NONE);
-
 	static TextureManager* Instance()
 	{
 		if (s_pInstance == 0)
@@ -35,5 +30,8 @@ public:
 		}
 		return s_pInstance;
 	}
+
+private:
+	static TextureManager *s_pInstance;
 };
 typedef TextureManager TheTextureManager;

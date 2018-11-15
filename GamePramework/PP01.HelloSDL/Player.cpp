@@ -11,6 +11,11 @@ void Player::draw(SDL_Renderer* pRenderer)
 	GameObject::draw(pRenderer);
 }
 
+void Player::clean()
+{
+	GameObject::clean();
+}
+
 void Player::update()
 {
 	m_x -= 1;

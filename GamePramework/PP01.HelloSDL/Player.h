@@ -1,5 +1,4 @@
 #pragma once
-#include "TextureManager.h"
 #include "GameObject.h"
 
 class Player : public GameObject
